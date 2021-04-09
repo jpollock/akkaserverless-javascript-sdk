@@ -116,8 +116,8 @@ class ActionHandler {
    */
   handleUnary() {
     this.setupUnaryOutContext();
-    const deserializedCommand = this.support.anySupport.deserialize(this.call.request.payload);
-    const userReturn = this.invokeUserCallback("command", this.commandHandler, deserializedCommand, this.ctx);
+    //const deserializedCommand = this.support.anySupport.deserialize(this.call.request.payload);
+    const userReturn = this.invokeUserCallback("command", this.commandHandler, null, this.ctx);
     if (userReturn !== undefined) {
       if (this.call.cancelled) {
         this.streamDebug("Unary command handler for command %s.%s both sent a reply through the context and returned a value, ignoring return value.", this.support.service.name, this.grpcMethod.name)
